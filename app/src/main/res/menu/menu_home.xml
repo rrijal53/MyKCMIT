@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context="np.com.rowsun.mykcmit.Home">
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/navigate"
+        android:title="@string/Navigate"
+        android:orderInCategory="200"
+        android:icon="@drawable/abc_btn_rating_star_off_mtrl_alpha"
+        app:showAsAction="always"/>
+</menu>
