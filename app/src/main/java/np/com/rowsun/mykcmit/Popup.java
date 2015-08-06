@@ -18,6 +18,7 @@ public class Popup extends ActionBarActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
 

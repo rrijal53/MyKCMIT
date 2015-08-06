@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -27,6 +31,8 @@ public class Navigation_Fragment extends Fragment {
     private boolean mUserLearnedDrawer;
     private boolean mFromSavedInstanceState;
     private View containerView;
+    private RecyclerView recyclerView;
+    private viewAdapter adapter;
     public Navigation_Fragment() {
 
     }
@@ -45,9 +51,29 @@ public class Navigation_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_navigation, container, false);
-    }
+        View layout=inflater.inflate(R.layout.fragment_navigation, container, false);
+        recyclerView= (RecyclerView) layout.findViewById(R.id.drawerList);
+        adapter=new viewAdapter(getActivity(),getData());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        return layout;
 
+    }
+    public static List<navigationClass> getData()
+    {
+        List<navigationClass> list= new ArrayList<>();
+        int icons=R.drawable.ic_launcher;
+        String[] title={"Home","Notice Board","Downloads","Contact Us","Map","Setting"};
+        for(int i=0;i<title.length;i++)
+        {
+            navigationClass inf=new navigationClass();
+            inf.itemId=icons;
+            inf.itemName=title[i];
+           list.add(inf);
+        }
+        return list;
+
+    }
 
     public void setUp(int fragement_id,DrawerLayout drawerlayout, final Toolbar toolbar) {
 
@@ -75,9 +101,10 @@ public class Navigation_Fragment extends Fragment {
 
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
                 if(slideOffset!=0) {
-                    if(slideOffset<0.5)
-                    toolbar.setBackgroundColor((int) (Color.parseColor("#303F9F") - slideOffset * 100));
+                    if(slideOffset<0.6)
+                        toolbar.setBackgroundColor((int) (Color.parseColor("#3F51B5") - slideOffset * 100));
                 }
                 else
                     toolbar.setBackgroundColor(Color.parseColor("#3F51B5"));

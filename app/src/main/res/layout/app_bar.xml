@@ -6,6 +6,7 @@
     android:background="@color/primaryColor"
     app:theme="@style/customToolBar"
     app:popupTheme="@style/customToolBar"
+    android:paddingTop="@dimen/appbar_top_padding"
     >
 
 </android.support.v7.widget.Toolbar>

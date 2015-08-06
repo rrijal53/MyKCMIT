@@ -2,13 +2,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/background_material_light"
     android:layout_height="match_parent"
-    android:background="@color/primaryColor"
+
     tools:context="np.com.rowsun.mykcmit.Navigation_Fragment">
+<LinearLayout
+    android:id="@+id/container_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    >
+    <ImageView
+        android:layout_marginTop="@dimen/drawermargintop"
+        android:layout_width="@dimen/nav_drawer_width"
+        android:layout_height="@dimen/image_height"
+        android:src="@drawable/image"
+        />
 
+    <android.support.v7.widget.RecyclerView
+        android:layout_weight="1"
+        android:id="@+id/drawerList"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+       </android.support.v7.widget.RecyclerView>
+
+
+
+</LinearLayout>
 </RelativeLayout>
